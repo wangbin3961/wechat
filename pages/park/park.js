@@ -27,25 +27,37 @@ Page({
         borderRadius: 3,
         padding: 5
       }
-    }]
+    }],
+    rendered: false,
+    parklist: [{
+      "name":"测试停车场2"
+    }, {
+        "name": "测试停车场1"
+      }],
+    showItems: "flex"
   },
+
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
+
   //移动地图事件
   regionchange: function() {
     console.log('map region changed.');
   },
+
   //点击marker事件
   bindMarkerTap: function(e) {
     console.log(e);
   },
+
   bindCalloutTap: function(e) {
     console.info(e);
   },
+
   //定位到当前位置
   bindControlTap: function() {
     console.log('click control.');
@@ -53,7 +65,7 @@ Page({
     //获取当前位置
     wx.getLocation({
       type: 'wgs84', //返回GPS坐标
-      success: function (res) {
+      success: function(res) {
         var _latitude = res.latitude
         var _longitude = res.longitude
         _this.setData({
@@ -63,26 +75,33 @@ Page({
       }
     })
   },
+
   //搜索目的地
   bindSearchTap: function(e) {
     console.info(e);
     wx.navigateTo({
-      url: '../',
+      url: '../search/search',
     })
   },
+
+  bindViewMoreTap: function(e) {
+    this.setData({
+      showItems: "flex"
+    })
+  },
+
   onLoad: function() {
-    console.info('park onload');
     var _this = this;
     //获取当前位置
     wx.getLocation({
       type: 'wgs84', //返回GPS坐标
-      success: function (res) {
-        console.info(res)
+      success: function(res) {
         var _latitude = res.latitude
         var _longitude = res.longitude
         _this.setData({
           latitude: _latitude,
-          longitude: _longitude
+          longitude: _longitude,
+          rendered: true
         });
       }
     })

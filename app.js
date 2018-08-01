@@ -1,7 +1,6 @@
 //app.js
 App({
   onLaunch: function () {
-    console.info('app onLaunch');
     // 展示本地存储能力
     // 启动时间保存到logs
     var logs = wx.getStorageSync('logs') || []

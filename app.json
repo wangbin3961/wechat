@@ -1,21 +1,23 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/park/park",
+    "pages/search/search",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "丽亭智能停车",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "欢迎"
-      },{
+      },
+      {
         "pagePath": "pages/park/park",
         "text": "首页",
         "iconPath": "pages/park/img/home.png",

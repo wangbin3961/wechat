@@ -1,0 +1,70 @@
+.search-container {
+  position: fixed;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.search-area {
+  height: 35px;
+  display: flex;
+  flex-direction: row;
+  align-items: center; /*垂直居中*/
+  justify-content: space-between;
+  font-size: small;
+  width: 90%;
+  margin: 0 auto;
+  background-color: #eee;
+  border-radius: 2px;
+}
+
+.search-city {
+  padding: 0 10px;
+  background-color: #eee;
+}
+
+.voice {
+  width: 21px;
+  height: 21px;
+  padding-right: 10px;
+}
+
+.search-area input {
+  flex-grow: 1;
+  padding: 0 10px;
+}
+
+.search-area icon {
+  padding-left: 10px;
+}
+
+.search-history {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /*垂直居中*/
+  justify-content: space-between;
+  font-size: small;
+  width: 90%;
+  margin: 2px auto;
+  background-color: #eee;
+  border-radius: 2px;
+}
+
+.search-history .item {
+  height: 35px;
+  width: 100%;
+  border-bottom: 1px soild #fff;
+  display: flex;
+  align-items: center; /*垂直居中*/
+}
+
+.search-history .item text {
+  padding: 0 10px;
+}
+
+.search-history .clear {
+  height: 40px;
+  display: flex;
+  align-items: center; /*垂直居中*/
+}
