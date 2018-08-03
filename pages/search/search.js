@@ -18,9 +18,14 @@ Page({
    */
   bindConfirm: function(e) {
     console.info(e.detail.value);
+    //加入历史搜索记录
     var history = wx.getStorageSync('searchHistory') || []
     history.unshift(e.detail.value)
     wx.setStorageSync('searchHistory', history)
+    //跳转页面
+    wx.switchTab({
+      url: '../park/park',
+    })
   },
 
   /**
@@ -28,6 +33,18 @@ Page({
    */
   bindClearHistoryTap: function(e) {
     wx.removeStorageSync("searchHistory");
+  },
+
+  /**
+   * 点击历史搜索 
+   */
+  bindHistorySearchTap: function(e) {
+    var text = e.currentTarget.dataset.text;
+    app.globalData.searchText = text;
+    //跳转页面
+    wx.switchTab({
+      url: '../park/park',
+    })
   },
 
   onLoad: function() {

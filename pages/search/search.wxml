@@ -3,10 +3,10 @@
   <view class='search-area'>
     <icon type="search" size="16" />
     <input bindinput="bindKeyInput" bindconfirm="bindConfirm" placeholder="请输入目的地名称" auto-focus confirm-type="search" />
-    <image class="voice" src="../park/img/voice.png" />
+    <image class="voice" src="../../images/voice.png" />
   </view>
   <view class='search-history' wx:if="{{hasHistory}}">
-    <view class="item" wx:for="{{history}}" wx:for-item="item">
+    <view class="item" wx:for="{{history}}" wx:for-item="item" wx:key="*this" bindtap="bindHistorySearchTap" data-text="{{item}}">
       <text>{{item}}</text>
     </view>
     <view class="clear" bindtap="bindClearHistoryTap">

@@ -7,31 +7,38 @@
 
       <!-- 搜索-->
       <cover-view class="search" hover-class="search-hover" bindtap="bindSearchTap">
-        <cover-image class="icon" src="img/search.png" />
-        <cover-view class="text">请输入您的目的地</cover-view>
-        <cover-image class="voice" src="img/voice.png" />
+        <cover-image class="icon" src="../../images/search.png" />
+        <cover-view class="text">{{searchplacehold}}</cover-view>
+        <cover-image class="voice" src="../../images/voice.png" />
       </cover-view>
 
       <!-- 回到当前位置按钮-->
       <cover-view class="controls" hover-class="controls-hover" bindtap="bindControlTap" hover-stay-time="100">
-        <cover-image class="img" src="img/location.png" />
+        <cover-image class="img" src="../../images/location.png" />
       </cover-view>
+
+      <!--  -->
 
     </map>
   </view>
 
-  <!-- 停车场列表 -->
-  <view class="parklist" bindtap='bindViewMoreTap'>
-    <view class='title'>
+  <!-- 查看停车场列表 -->
+  <view class="parklist" bindtap="bindViewMoreTap" wx:if="{{rendered}}">
+    <view class="title">
       <icon type="search" size="16" />
-      <text>点击查看更多停车场</text>
+      <text>{{searchmoreinfo}}</text>
     </view>
 
   </view>
-  <view class="items" style="display:{{showItems}}">
-    <view class="park-item" wx:for="{{parklist}}" wx:for-item="item">
+  <!-- 停车场 -->
+  <scroll-view class="items" scroll-y style="display:{{showItems}};" bindscrolltoupper="bindScrollToUpper" bindscrolltolower="bindScrollToLower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <view id="{{index}}" class="park-item" wx:for="{{parklist}}" wx:for-item="item" wx:key="id">
       <text>{{item.name}}</text>
+      <button bindtap="setLoading" data-name="{{item.name}}">预约</button>
     </view>
-  </view>
+    <view class="tobottom">
+      <text>没有更多结果了</text>
+    </view>
+  </scroll-view>
 
 </view>

@@ -3,6 +3,17 @@
 const app = getApp();
 const util = require('../../utils/util.js');
 
+var _parkList = [{
+  "name": "测试停车场2",
+  "id": "1"
+}, {
+  "name": "测试停车场1",
+  "id": "1"
+}];
+var _searchplacehold = "请输入您的目的地";
+var _searchmoreinfo = "点击查看更多停车场";
+var _searchmoreinfo2 = "附近的停车场";
+
 Page({
   data: {
     latitude: 40.002607,
@@ -12,7 +23,7 @@ Page({
     polyline: [],
     //标记点
     markers: [{
-      iconPath: "img/park.png",
+      iconPath: "../../images/park.png",
       id: 0,
       title: '11',
       latitude: 39.97933,
@@ -29,19 +40,10 @@ Page({
       }
     }],
     rendered: false,
-    parklist: [{
-      "name":"测试停车场2"
-    }, {
-        "name": "测试停车场1"
-      }],
-    showItems: "flex"
-  },
-
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    parklist: _parkList,
+    showItems: "none",
+    searchplacehold: _searchplacehold,
+    searchmoreinfo: _searchmoreinfo
   },
 
   //移动地图事件
@@ -60,7 +62,6 @@ Page({
 
   //定位到当前位置
   bindControlTap: function() {
-    console.log('click control.');
     var _this = this;
     //获取当前位置
     wx.getLocation({
@@ -78,19 +79,26 @@ Page({
 
   //搜索目的地
   bindSearchTap: function(e) {
-    console.info(e);
+    app.globalData.searchText = "";
     wx.navigateTo({
       url: '../search/search',
     })
   },
 
+  //查看更多
   bindViewMoreTap: function(e) {
     this.setData({
       showItems: "flex"
     })
   },
 
-  onLoad: function() {
+  bindScrollToUpper: function(e) {
+    this.setData({
+      showItems: "none"
+    })
+  },
+
+  onLoad: function(options) {
     var _this = this;
     //获取当前位置
     wx.getLocation({
@@ -114,5 +122,31 @@ Page({
     //     })
     //   }
     // })
+  },
+
+  onShow: function() {
+    // 生命周期函数--监听页面显示
+    console.info(app.globalData);
+    if (app.globalData.searchText) {
+      // 搜索返回
+      // TODO 地图重新定位
+      // TODO 获取新位置停车场
+      this.setData({
+        parklist: [{
+          "name": "测试停车场1",
+          "id": "1"
+        }],
+        showItems: "flex",
+        searchplacehold: app.globalData.searchText,
+        searchmoreinfo: _searchmoreinfo2
+      })
+    } else {
+      this.setData({
+        parklist: _parkList,
+        showItems: "none",
+        searchplacehold: _searchplacehold,
+        searchmoreinfo: _searchmoreinfo
+      })
+    }
   }
 })

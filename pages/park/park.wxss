@@ -90,19 +90,42 @@
 }
 
 .items {
-  height: 20px;
+  height: 80px;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .park-item {
-  height: 35px;
+  height: 40px;
   width: 100%;
   display: flex;
+  border-bottom: 1px solid #e9e9e9;
   align-items: center; /*垂直居中*/
+  justify-content: space-between;
 }
 
 .park-item text {
   font-size: small;
+  width: 60%;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+}
+
+.park-item button {
+  font-size: small;
+  border-radius: 2px;
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0;
+}
+
+.items .tobottom {
+  font-size: small;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  color: #c9c9c9;
 }

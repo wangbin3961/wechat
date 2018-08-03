@@ -3,15 +3,22 @@
     "pages/index/index",
     "pages/park/park",
     "pages/search/search",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/user/user",
+    "pages/login/login",
+    "pages/register/register"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#0c1e88",
     "navigationBarTitleText": "丽亭智能停车",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
+    "color": "#a0a0a0",
+    "selectedColor": "#0c1e88",
+    "backgroundColor": "#f2f2f2",
+    "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -20,20 +27,14 @@
       {
         "pagePath": "pages/park/park",
         "text": "首页",
-        "iconPath": "pages/park/img/home.png",
-        "selectedIconPath": "pages/park/img/home.png"
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home.png"
       },
       {
-        "pagePath": "pages/logs/logs",
-        "text": "日志",
-        "iconPath": "pages/park/img/log.png",
-        "selectedIconPath": "pages/park/img/log.png"
-      },
-      {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/user/user",
         "text": "我的",
-        "iconPath": "pages/park/img/my.png",
-        "selectedIconPath": "pages/park/img/my.png"
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my.png"
       }
     ]
   },
