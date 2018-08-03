@@ -2,7 +2,7 @@
   <view class="userinfo" wx:if="{{isLogin}}">
     <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    <image class="arrow" src="../../images/arrow-white.png"></image>
+    <image class="arrow" src="../../images/arrow-white-m.png"></image>
   </view>
   <view class="userinfo" wx:else>
     <image bindtap="bindLoginTap" class="userinfo-avatar" src="../../images/user-default.png" mode="cover"></image>
@@ -13,18 +13,18 @@
     <view class="item">
       <image src="../../images/order1-b.png"></image>
       <text>预约记录</text>
-      <image src="../../images/arrow-gray.png"></image>
+      <image src="../../images/arrow-gray-m.png"></image>
     </view>
     <view class="item">
       <image src="../../images/order2-b.png"></image>
       <text>我的订单</text>
-      <image src="../../images/arrow-gray.png"></image>
+      <image src="../../images/arrow-gray-m.png"></image>
     </view>
     <view class="space"></view>
     <view class="item">
       <image src="../../images/car-b.png"></image>
       <text>车辆管理</text>
-      <image src="../../images/arrow-gray.png"></image>
+      <image src="../../images/arrow-gray-m.png"></image>
     </view>
   </view>
 </view>

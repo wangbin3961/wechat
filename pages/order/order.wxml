@@ -40,8 +40,8 @@
     </view>
 
 
-    <button class="btn_login" type="primary" formType="submit">确认</button>
-    <button class="btn_login" type="default">取消</button>
+    <button class="btn_login" type="primary" formType="submit">确 认</button>
+    <button class="btn_login" type="default">取 消</button>
   </form>
 
 </view>
