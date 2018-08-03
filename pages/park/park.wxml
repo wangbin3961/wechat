@@ -40,7 +40,7 @@
   <scroll-view class="items" scroll-y style="display:{{showItems}};" bindscrolltoupper="bindScrollToUpper" bindscrolltolower="bindScrollToLower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
     <view id="{{index}}" class="park-item" wx:for="{{parklist}}" wx:for-item="item" wx:key="id">
       <text>{{item.name}}</text>
-      <button bindtap="setLoading" data-name="{{item.name}}">预约</button>
+      <button bindtap="bindOrderTap" data-name="{{item.name}}">预约</button>
     </view>
     <view class="tobottom">
       <text>没有更多结果了</text>

@@ -92,10 +92,15 @@ Page({
     })
   },
 
+  //滚动到最上
   bindScrollToUpper: function(e) {
     this.setData({
       showItems: "none"
     })
+  },
+
+  bindOrderTap: function(e) {
+
   },
 
   onLoad: function(options) {

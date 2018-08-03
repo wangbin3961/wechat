@@ -68,7 +68,7 @@
 }
 
 .parklist {
-  height: 30px;
+  height: 35px;
   width: 100%;
   flex-grow: 0;
   display: flex;
@@ -135,7 +135,7 @@
 .order {
   position: relative;
   top: 65%;
-  left: 610rpx;
+  left: 630rpx;
   height: 40px;
   width: 40px;
   display: flex;
@@ -158,8 +158,8 @@
 
 .pay {
   position: relative;
-  top: 68%;
-  left: 610rpx;
+  top: 67%;
+  left: 630rpx;
   height: 40px;
   width: 40px;
   display: flex;
