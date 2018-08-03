@@ -99,7 +99,15 @@ Page({
     })
   },
 
+  //预约
   bindOrderTap: function(e) {
+    wx.navigateTo({
+      url: '../order/order'
+    })
+  },
+
+  //取车缴费
+  bindPayTap: function (e) {
 
   },
 

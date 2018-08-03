@@ -1,0 +1,48 @@
+/* pages/order/order.wxss */
+
+.order-form {
+  background-color: #eee;
+  height: 100%;
+}
+
+.field {
+  background-color: #fff;
+  font-size: small;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  color: #999;
+}
+
+.field text {
+  height: 20px;
+  line-height: 20px;
+}
+
+.field image {
+  height: 20px;
+  width: 20px;
+}
+
+.field .title {
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  color: #333;
+  align-items: center;
+}
+
+.field .title image {
+  width: 24px;
+  height: 24px;
+}
+
+.field picker {
+  height: 20px;
+  padding: 10px;
+}
+
+.order-form button {
+  margin: 10px;
+}

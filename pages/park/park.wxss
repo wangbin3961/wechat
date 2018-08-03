@@ -115,7 +115,7 @@
 
 .park-item button {
   font-size: small;
-  border-radius: 2px;
+  border-radius: 15px;
   width: 60px;
   height: 30px;
   line-height: 30px;
@@ -126,8 +126,8 @@
 
 .items .tobottom {
   font-size: small;
-  height: 35px;
-  line-height: 35px;
+  height: 45px;
+  line-height: 45px;
   text-align: center;
   color: #c9c9c9;
 }

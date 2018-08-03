@@ -1,0 +1,47 @@
+<view class="order-form">
+  <form bindsubmit="formSubmit">
+    <view class="field">
+      <view class="title">
+        <text>盈都大厦地下停车场</text>
+        <image src="../../images/park.png" />
+      </view>
+      <text>空闲车位 10 ~ 免15分钟 ~ 2.5元/15分钟</text>
+      <text>地下车位 电子支付</text>
+      <text>地址：北京市海淀区知春路甲48号</text>
+      <text>营业时间：00:00-24:00</text>
+    </view>
+
+    <view class="field">
+      <view class="title">选择停车日期</view>
+      <picker mode="date" value="{{parkdate}}" start="2018-01-01" end="2020-12-31" data-idx="1" bindchange="bindDateChange">
+        <view class="picker">
+          日期：{{parkdate}}
+        </view>
+      </picker>
+      <picker mode="time" value="{{parktime}}" start="00:00" end="23:59" data-idx="1" bindchange="bindTimeChange">
+        <view class="picker">
+          时间：{{parktime}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="field">
+      <view class="title">预计取车时间</view>
+      <picker mode="date" value="{{pickdate}}" start="2018-01-01" end="2020-12-31" data-idx="2" bindchange="bindDateChange">
+        <view class="picker">
+          日期：{{pickdate}}
+        </view>
+      </picker>
+      <picker mode="time" value="{{picktime}}" start="00:00" end="23:59" data-idx="2" bindchange="bindTimeChange">
+        <view class="picker">
+          时间：{{picktime}}
+        </view>
+      </picker>
+    </view>
+
+
+    <button class="btn_login" type="primary" formType="submit">确认</button>
+    <button class="btn_login" type="default">取消</button>
+  </form>
+
+</view>
