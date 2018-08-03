@@ -3,16 +3,16 @@
 const app = getApp();
 const util = require('../../utils/util.js');
 
-var _parkList = [{
+let _parkList = [{
   "name": "测试停车场2",
   "id": "1"
 }, {
   "name": "测试停车场1",
   "id": "1"
 }];
-var _searchplacehold = "请输入您的目的地";
-var _searchmoreinfo = "点击查看更多停车场";
-var _searchmoreinfo2 = "附近的停车场";
+let _searchplacehold = "请输入您的目的地";
+let _searchmoreinfo = "点击查看更多停车场";
+let _searchmoreinfo2 = "附近的停车场";
 
 Page({
   data: {

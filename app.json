@@ -16,25 +16,27 @@
   },
   "tabBar": {
     "color": "#a0a0a0",
-    "selectedColor": "#0c1e88",
+    "selectedColor": "#1296db",
     "backgroundColor": "#f2f2f2",
     "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "欢迎"
+        "text": "欢迎",
+        "iconPath": "images/welcome.png",
+        "selectedIconPath": "images/welcome-selected.png"
       },
       {
         "pagePath": "pages/park/park",
         "text": "首页",
         "iconPath": "images/home.png",
-        "selectedIconPath": "images/home.png"
+        "selectedIconPath": "images/home-selected.png"
       },
       {
         "pagePath": "pages/user/user",
         "text": "我的",
-        "iconPath": "images/my.png",
-        "selectedIconPath": "images/my.png"
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mine-selected.png"
       }
     ]
   },

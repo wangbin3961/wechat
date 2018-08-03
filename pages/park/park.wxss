@@ -23,7 +23,7 @@
   display: flex;
   background-color: #fff;
   border-radius: 2px;
-  box-shadow: 1rpx 1rpx #eee;
+  box-shadow: 1px 1px #eee;
 }
 
 .controls-hover {
@@ -41,7 +41,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 1rpx 1rpx 1rpx 1rpx #eee;
+  box-shadow: 1px 1px 1px 1px #eee;
 }
 
 .search .icon {
@@ -120,6 +120,8 @@
   height: 30px;
   line-height: 30px;
   padding: 0;
+  background-color: #1296db;
+  color: #fff;
 }
 
 .items .tobottom {
@@ -129,3 +131,52 @@
   text-align: center;
   color: #c9c9c9;
 }
+
+.order {
+  position: relative;
+  top: 65%;
+  left: 610rpx;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 1px 1px #eee;
+  align-items: center; /*垂直居中*/
+  justify-content: center;
+}
+
+.order-hover {
+  background-color: #eee;
+}
+
+.order .img {
+  display: block;
+  height: 28px;
+  width: 28px;
+}
+
+.pay {
+  position: relative;
+  top: 68%;
+  left: 610rpx;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 1px 1px #eee;
+  align-items: center; /*垂直居中*/
+  justify-content: center;
+}
+
+.pay .img {
+  display: block;
+  height: 24px;
+  width: 24px;
+}
+
+.pay-hover {
+  background-color: #eee;
+}
+

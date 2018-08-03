@@ -1,3 +1,5 @@
+const app = getApp();
+
 Page({
   data: {
     text: "Page login"
@@ -20,6 +22,11 @@ Page({
    * 登录
    */
   bindLoginTap: function(e) {
-
+    //校验登录
+    //登录成功跳转
+    app.globalData.isLogin = true;
+    wx.navigateBack({
+      
+    });
   }
 })

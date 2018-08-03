@@ -19,7 +19,6 @@ Page({
     })
   },
   onLoad: function () {
-    console.info('index onload')
     if (app.globalData.userInfo) {
       console.info(1)
       this.setData({
