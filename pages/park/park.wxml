@@ -14,15 +14,15 @@
 
       <!-- 回到当前位置按钮-->
       <cover-view class="controls" hover-class="controls-hover" bindtap="bindControlTap" hover-stay-time="100">
-        <cover-image class="img" src="../../images/location.png" />
+        <cover-image class="img" src="../../images/location-m.png" />
       </cover-view>
 
       <!-- 预约/取车-->
       <cover-view class="order" hover-class="order-hover" bindtap="bindOrderTap" hover-stay-time="100">
-        <cover-image class="img" src="../../images/order.png" />
+        <cover-image class="img" src="../../images/order-car-b.png" />
       </cover-view>
       <cover-view class="pay" hover-class="pay-hover" bindtap="bindPayTap" hover-stay-time="100">
-        <cover-image class="img" src="../../images/pay.png" />
+        <cover-image class="img" src="../../images/pay-b.png" />
       </cover-view>
 
     </map>

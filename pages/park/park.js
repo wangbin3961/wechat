@@ -23,7 +23,7 @@ Page({
     polyline: [],
     //标记点
     markers: [{
-      iconPath: "../../images/park.png",
+      iconPath: "../../images/park-m.png",
       id: 0,
       title: '11',
       latitude: 39.97933,
@@ -87,16 +87,23 @@ Page({
 
   //查看更多
   bindViewMoreTap: function(e) {
-    this.setData({
-      showItems: "flex"
-    })
+    if (this.data.showItems == "flex") {
+      this.setData({
+        showItems: "none"
+      })
+    } else {
+      this.setData({
+        showItems: "flex"
+      })
+    }
+
   },
 
   //滚动到最上
   bindScrollToUpper: function(e) {
-    this.setData({
-      showItems: "none"
-    })
+    // this.setData({
+    //   showItems: "none"
+    // })
   },
 
   //预约
@@ -107,7 +114,7 @@ Page({
   },
 
   //取车缴费
-  bindPayTap: function (e) {
+  bindPayTap: function(e) {
 
   },
 
