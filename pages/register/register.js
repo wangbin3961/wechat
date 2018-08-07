@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    isAgree: false,
+    isPassword: true
   },
 
   /**
@@ -61,6 +62,36 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
+
+  },
+
+  bindAgreeChange: function(e) {
+    this.setData({
+      isAgree: !!e.detail.value.length
+    });
+  },
+
+  bindTogglePwd: function(e) {
+    this.setData({
+      isPassword: !this.data.isPassword
+    })
+  },
+
+  bindRigester: function(e) {
+    var that = this;
+    var formData = e.detail.value;
+    console.info(formData);
+    // wx.request({
+    //   url: 'http://test.com:8080/test/socket.php?msg=2',
+    //   data: formData,
+    //   header: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   success: function(res) {
+    //     console.log(res.data)
+    //     that.modalTap();
+    //   }
+    // })
 
   }
 })

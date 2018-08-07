@@ -1,2 +1,51 @@
 <!--pages/register/register.wxml-->
-<text>pages/register/register.wxml</text>
+<view class="register">
+  <form bindsubmit="bindRigester" bindreset="formReset">
+    <view class="phone">
+      <view class="icon">
+        <image src="../../images/phone.png"></image>
+      </view>
+      <view class="text">
+        <input class="weui-input" type="number" placeholder="请输入您的手机号" name="phone"/>
+      </view>
+    </view>
+
+    <view class="vcode">
+      <view class="icon">
+        <image src="../../images/vcode.png"></image>
+      </view>
+      <view class="text">
+        <input class="weui-input" type="number" placeholder="请输入验证码" name="vcode" />
+      </view>
+      <view class="">
+        <button class="vcode-btn" type="warn">发送验证码</button>
+      </view>
+    </view>
+
+    <view class="password">
+      <view class="icon">
+        <image src="../../images/password.png"></image>
+      </view>
+      <view class="text">
+        <input class="weui-input" password="{{isPassword}}" placeholder="6-12位数字加字母组合密码" name="password" />
+      </view>
+      <view class="icon">
+        <image bindtap="bindTogglePwd" src="{{isPassword ? '../../images/eyeclosed.png' : '../../images/eyeopen.png'}}"></image>
+      </view>
+    </view>
+
+    <checkbox-group bindchange="bindAgreeChange" name="agree" >
+      <label class="weui-agree" for="weuiAgree">
+        <view class="weui-agree__text">
+          <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+          <view class="weui-agree__checkbox-icon">
+            <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+          </view>
+          阅读并同意
+          <navigator url="" class="weui-agree__link">《相关条款》</navigator>
+        </view>
+      </label>
+    </checkbox-group>
+    <button class="register-btn" type="primary" formType="submit">注册</button>
+  </form>
+</view>

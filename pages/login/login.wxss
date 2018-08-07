@@ -18,9 +18,8 @@
 
 .login-txt {
   background: #bfefff;
-  /* font-size: 24rpx; */
   text-align: center;
-  color: #333;
+  color: #b2b2b2;
   padding: 15rpx;
   margin-bottom: 5rpx;
 }
@@ -29,13 +28,10 @@
   background: #337ab7;
   border: 0;
   color: #fff;
-  /* font-size: 24rpx; */
-  /* padding: 15rpx; */
   margin: 50rpx 20rpx 20rpx;
 }
 
 .forget-reg {
-  /* font-size: 24rpx; */
   color: #337ab7;
   margin: 0 30rpx;
 }
