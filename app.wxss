@@ -1,4 +1,5 @@
 /**app.wxss**/
+
 .container {
   height: 100%;
   display: flex;
@@ -7,4 +8,75 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
+
+/** 统一颜色定义 */
+
+.green {
+  color: #09bb07;
+}
+
+.black {
+  color: #000;
+}
+
+.black-simi {
+  color: #353535;
+}
+
+.grey {
+  color: #888;
+}
+
+.grey-light {
+  color: #b2b2b2;
+}
+
+.red {
+  color: #e64340;
+}
+
+.blue {
+  color: #576b95;
+}
+
+/** 统一字体大小 */
+
+.x-large {
+  font-size: 40pt;
+}
+
+.larger {
+  font-size: 20pt;
+}
+
+.large {
+  font-size: 18pt;
+}
+
+.medium {
+  font-size: 17pt;
+}
+
+.small {
+  font-size: 14pt;
+}
+
+.smaller {
+  font-size: 13pt;
+}
+
+.x-small {
+  font-size: 11pt;
+}
+
+/* 布局 */
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}

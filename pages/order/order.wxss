@@ -3,16 +3,14 @@
 .order-form {
   background-color: #eee;
   height: 100%;
+  /* padding: 15px 0; */
 }
 
 .field {
   background-color: #fff;
-  font-size: small;
-  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
-  padding: 15px;
-  color: #999;
+  padding: 10px 20px;
 }
 
 .field text {
@@ -25,12 +23,13 @@
   width: 20px;
 }
 
-.field .title {
-  display: flex;
-  flex-direction: row;
+.title {
+  padding: 10px 20px;
   font-weight: bold;
-  color: #333;
-  align-items: center;
+}
+
+.field text {
+  padding-bottom: 10px;
 }
 
 .field .title image {
@@ -40,10 +39,26 @@
 }
 
 .field picker {
-  height: 20px;
   padding: 10px;
+  display: flex;
 }
 
 .order-form button {
   margin: 10px;
+}
+
+.field .row {
+  align-items: center;
+}
+
+.picker-default {
+  color: #b2b2b2;
+}
+
+.picker {
+  color: #000;
+}
+
+.field .label {
+  width: 85px;
 }

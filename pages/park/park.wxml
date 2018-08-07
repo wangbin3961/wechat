@@ -8,7 +8,7 @@
       <!-- 搜索-->
       <cover-view class="search" hover-class="search-hover" bindtap="bindSearchTap">
         <cover-image class="icon" src="../../images/search.png" />
-        <cover-view class="text">{{searchplacehold}}</cover-view>
+        <cover-view class="text grey-light smaller">{{searchplacehold}}</cover-view>
         <cover-image class="voice" src="../../images/voice.png" />
       </cover-view>
 
@@ -32,14 +32,23 @@
   <view class="parklist" bindtap="bindViewMoreTap" wx:if="{{rendered}}">
     <view class="title">
       <icon type="search" size="16" />
-      <text>{{searchmoreinfo}}</text>
+      <text class="x-small grey">{{searchmoreinfo}}</text>
     </view>
 
   </view>
   <!-- 停车场 -->
-  <scroll-view class="items" scroll-y style="display:{{showItems}};" bindscrolltoupper="bindScrollToUpper" bindscrolltolower="bindScrollToLower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-    <view id="{{index}}" class="park-item" wx:for="{{parklist}}" wx:for-item="item" wx:key="id">
-      <text>{{item.name}}</text>
+  <scroll-view class="items" scroll-y style="display:{{showItems}};height:{{height}}" bindscrolltoupper="bindScrollToUpper" bindscrolltolower="bindScrollToLower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <view id="{{index}}" class="row park-item" wx:for="{{parklist}}" wx:for-item="item" wx:key="id">
+      <view class="column park-item-text">
+        <text class="small black">{{item.name}}</text>
+        <text class="x-small grey">{{item.desc1}}</text>
+        <view class="row">
+          <text class="x-small green">{{item.desc2}}</text>
+          <text class="x-small grey" style="padding-left:10px;">{{item.desc3}}</text>
+        </view>
+
+      </view>
+
       <button bindtap="bindOrderTap" data-name="{{item.name}}">预约</button>
     </view>
     <view class="tobottom">

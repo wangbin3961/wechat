@@ -54,11 +54,11 @@
 
 .item text {
   flex-grow: 1;
-  font-size: small;
+  /* font-size: small; */
   padding-left: 10px;
 }
 
 .main .space {
-  height: 10px;
+  height: 20px;
   background-color: #eee;
 }

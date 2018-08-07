@@ -10,18 +10,24 @@ Page({
     parkdate: util.formatDate(currdate),
     parktime: util.formatTime(currdate),
     pickdate: util.formatDate(currdate),
-    picktime: util.formatTime(currdate)
+    picktime: util.formatTime(currdate),
+    wxsspicker1: "picker-default",
+    wxsspicker2: "picker-default",
+    wxsspicker3: "picker-default",
+    wxsspicker4: "picker-default"
   },
 
   bindDateChange: function(e) {
     console.info(e);
     if (e.currentTarget.dataset.idx == "1") {
       this.setData({
-        parkdate: e.detail.value
+        "parkdate": e.detail.value,
+        "wxsspicker1": "picker"
       })
     } else if (e.currentTarget.dataset.idx == "2") {
       this.setData({
-        pickdate: e.detail.value
+        "pickdate": e.detail.value,
+        "wxsspicker3": "picker"
       })
     }
 
@@ -30,13 +36,21 @@ Page({
   bindTimeChange: function(e) {
     if (e.currentTarget.dataset.idx == "1") {
       this.setData({
-        parktime: e.detail.value
+        "parktime": e.detail.value,
+        "wxsspicker2": "picker"
       })
     } else if (e.currentTarget.dataset.idx == "2") {
       this.setData({
-        picktime: e.detail.value
+        "picktime": e.detail.value,
+        "wxsspicker4": "picker"
       })
     }
+  },
+
+  bindCancelTap: function(e){
+    wx.navigateBack({
+      
+    });
   },
 
   /**

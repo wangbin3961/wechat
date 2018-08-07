@@ -5,10 +5,28 @@ const util = require('../../utils/util.js');
 
 let _parkList = [{
   "name": "测试停车场2",
-  "id": "1"
+  "id": "1",
+  "desc1": "电子支付 · 地下 · 免15分钟",
+  "desc2": "车位充足",
+  "desc3": "约15.0元/小时",
+  latitude: 39.97933,
+  longitude: 116.31845
 }, {
   "name": "测试停车场1",
-  "id": "1"
+  "id": "1",
+  "desc1": "电子支付 · 地下 · 免15分钟",
+  "desc2": "车位充足",
+  "desc3": "约12.0元/小时",
+  latitude: 39.97933,
+  longitude: 116.31845
+}, {
+  "name": "大钟寺东路停车场",
+  "id": "1",
+  "desc1": "现金支付 · 地上 · 免15分钟",
+  "desc2": "车位充足",
+  "desc3": "约15.0元/小时",
+  latitude: 39.97933,
+  longitude: 116.31845
 }];
 let _searchplacehold = "请输入您的目的地";
 let _searchmoreinfo = "点击查看更多停车场";
@@ -43,7 +61,8 @@ Page({
     parklist: _parkList,
     showItems: "none",
     searchplacehold: _searchplacehold,
-    searchmoreinfo: _searchmoreinfo
+    searchmoreinfo: _searchmoreinfo,
+    height: "100px"
   },
 
   //移动地图事件
@@ -96,7 +115,18 @@ Page({
         showItems: "flex"
       })
     }
+    console.info(this.data.parklist.length);
+    console.info(app.globalData.windowHeight);
 
+    if (this.data.parklist.length < 3) {
+      this.setData({
+        height: "auto"
+      })
+    } else {
+      this.setData({
+        height: app.globalData.windowHeight / 2 + "px"
+      })
+    }
   },
 
   //滚动到最上
@@ -133,6 +163,7 @@ Page({
         });
       }
     })
+
     // wx.request({
     //   url: 'http://localhost:7474',
     //   success: res => {
@@ -149,16 +180,28 @@ Page({
     console.info(app.globalData);
     if (app.globalData.searchText) {
       // 搜索返回
+      let _result = [{
+        "name": "测试停车场1",
+        "id": "1",
+        "desc1": "电子支付 · 地下 · 免15分钟",
+        "desc2": "车位充足",
+        "desc3": "约12.0元/小时",
+        latitude: 39.97933,
+        longitude: 116.31845
+      }];
       // TODO 地图重新定位
       // TODO 获取新位置停车场
+
+      let _height = "auto";
+      if (_result.length > 2) {
+        _height = app.globalData.windowHeight/2 + "px";
+      }
       this.setData({
-        parklist: [{
-          "name": "测试停车场1",
-          "id": "1"
-        }],
+        parklist: _result,
         showItems: "flex",
         searchplacehold: app.globalData.searchText,
-        searchmoreinfo: _searchmoreinfo2
+        searchmoreinfo: _searchmoreinfo2,
+        height: _height
       })
     } else {
       this.setData({

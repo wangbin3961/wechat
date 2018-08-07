@@ -1,47 +1,66 @@
 <view class="order-form">
   <form bindsubmit="formSubmit">
+    <view class="title">
+      <text>盈都大厦地下停车场</text>
+      <!-- <image src="../../images/park.png" /> -->
+    </view>
     <view class="field">
-      <view class="title">
-        <text>盈都大厦地下停车场</text>
-        <image src="../../images/park.png" />
-      </view>
-      <text>空闲车位 10 ~ 免15分钟 ~ 2.5元/15分钟</text>
+      <text>空闲车位：10 · 免15分钟 · 12.5元/小时</text>
       <text>地下车位 电子支付</text>
       <text>地址：北京市海淀区知春路甲48号</text>
       <text>营业时间：00:00-24:00</text>
     </view>
 
+    <view class="title">
+      <text>选择停车日期</text>
+    </view>
     <view class="field">
-      <view class="title">选择停车日期</view>
-      <picker mode="date" value="{{parkdate}}" start="2018-01-01" end="2020-12-31" data-idx="1" bindchange="bindDateChange">
-        <view class="picker">
-          日期：{{parkdate}}
-        </view>
-      </picker>
-      <picker mode="time" value="{{parktime}}" start="00:00" end="23:59" data-idx="1" bindchange="bindTimeChange">
-        <view class="picker">
-          时间：{{parktime}}
-        </view>
-      </picker>
+      <view class="row">
+        <view class="label">日期</view>
+        <picker mode="date" value="{{parkdate}}" start="2018-01-01" end="2020-12-31" data-idx="1" bindchange="bindDateChange">
+          <view class="{{wxsspicker1}}">
+            {{parkdate}}
+          </view>
+        </picker>
+      </view>
+
+      <view class="row">
+        <view class="label">时间</view>
+        <picker mode="time" value="{{parktime}}" start="00:00" end="23:59" data-idx="1" bindchange="bindTimeChange">
+          <view class="{{wxsspicker2}}">
+            {{parktime}}
+          </view>
+        </picker>
+      </view>
     </view>
 
+    <view class="title">
+      <text>预计取车时间</text>
+    </view>
     <view class="field">
-      <view class="title">预计取车时间</view>
-      <picker mode="date" value="{{pickdate}}" start="2018-01-01" end="2020-12-31" data-idx="2" bindchange="bindDateChange">
-        <view class="picker">
-          日期：{{pickdate}}
-        </view>
-      </picker>
-      <picker mode="time" value="{{picktime}}" start="00:00" end="23:59" data-idx="2" bindchange="bindTimeChange">
-        <view class="picker">
-          时间：{{picktime}}
-        </view>
-      </picker>
+      <view class="row">
+        <view class="label">日期</view>
+        <picker mode="date" value="{{pickdate}}" start="2018-01-01" end="2020-12-31" data-idx="2" bindchange="bindDateChange">
+          <view class="{{wxsspicker3}}">
+            {{pickdate}}
+          </view>
+        </picker>
+      </view>
+
+      <view class="row">
+        <view class="label">时间</view>
+        <picker mode="time" value="{{picktime}}" start="00:00" end="23:59" data-idx="2" bindchange="bindTimeChange">
+          <view class="{{wxsspicker4}}">
+            {{picktime}}
+          </view>
+        </picker>
+      </view>
+
     </view>
 
 
     <button class="btn_login" type="primary" formType="submit">确 认</button>
-    <button class="btn_login" type="default">取 消</button>
+    <button class="btn_login" type="default" bindtap="bindCancelTap">取 消</button>
   </form>
 
 </view>
