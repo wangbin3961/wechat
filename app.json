@@ -4,10 +4,14 @@
     "pages/park/park",
     "pages/search/search",
     "pages/logs/logs",
-    "pages/user/user",
     "pages/login/login",
     "pages/register/register",
-    "pages/order/order"
+    "pages/appointment/appointment",
+    "pages/user/user",
+    "pages/user/userInfo/userInfo",
+    "pages/user/orderList/orderList",
+    "pages/user/appointments/appointments",
+    "pages/user/car/car"
   ],
   "window": {
     "backgroundTextStyle": "light",

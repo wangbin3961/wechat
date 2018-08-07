@@ -54,8 +54,11 @@
 
 .item text {
   flex-grow: 1;
-  /* font-size: small; */
   padding-left: 10px;
+}
+
+.main button {
+  margin: 20rpx;
 }
 
 .main .space {

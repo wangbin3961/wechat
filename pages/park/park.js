@@ -139,7 +139,7 @@ Page({
   //预约
   bindOrderTap: function(e) {
     wx.navigateTo({
-      url: '../order/order'
+      url: '../appointment/appointment'
     })
   },
 
