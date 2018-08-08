@@ -1,12 +1,12 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/park/park",
     "pages/search/search",
     "pages/logs/logs",
     "pages/login/login",
     "pages/register/register",
     "pages/appointment/appointment",
+    "pages/pay/pay",
     "pages/user/user",
     "pages/user/userInfo/userInfo",
     "pages/user/orderList/orderList",
@@ -25,12 +25,6 @@
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
     "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "欢迎",
-        "iconPath": "images/welcome.png",
-        "selectedIconPath": "images/welcome-selected.png"
-      },
       {
         "pagePath": "pages/park/park",
         "text": "首页",

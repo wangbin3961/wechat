@@ -66,8 +66,21 @@ Page({
   },
 
   //移动地图事件
-  regionchange: function() {
-    console.log('map region changed.');
+  regionchange: function(e) {
+    if (e.type == "end") {
+      this.mapCtx.getCenterLocation({
+        success: function(res) {
+          console.log(res.longitude)
+          console.log(res.latitude)
+        }
+      })
+      this.mapCtx.getRegion({
+        success: function(res) {
+          console.log(res)
+        }
+      })
+    }
+
   },
 
   //点击marker事件
@@ -81,19 +94,7 @@ Page({
 
   //定位到当前位置
   bindControlTap: function() {
-    var _this = this;
-    //获取当前位置
-    wx.getLocation({
-      type: 'wgs84', //返回GPS坐标
-      success: function(res) {
-        var _latitude = res.latitude
-        var _longitude = res.longitude
-        _this.setData({
-          latitude: _latitude,
-          longitude: _longitude
-        });
-      }
-    })
+    this.mapCtx.moveToLocation();
   },
 
   //搜索目的地
@@ -165,6 +166,8 @@ Page({
         });
       }
     })
+    // 使用 wx.createMapContext 获取 map 上下文
+    this.mapCtx = wx.createMapContext('park_map');
 
     // wx.request({
     //   url: 'http://localhost:7474',
@@ -196,7 +199,7 @@ Page({
 
       let _height = "auto";
       if (_result.length > 2) {
-        _height = app.globalData.windowHeight/2 + "px";
+        _height = app.globalData.windowHeight / 2 + "px";
       }
       this.setData({
         parklist: _result,

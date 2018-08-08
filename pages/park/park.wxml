@@ -3,7 +3,7 @@
   <!-- 停车场地图 -->
   <view class="map" wx:if="{{rendered}}">
     <map id="park_map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" controls="{{controls}}" markers="{{markers}}" bindmarkertap="bindMarkerTap" bindcallouttap="bindCalloutTap" polyline="{{polyline}}" circles="{{circles}}" bindregionchange="regionchange"
-      show-location style="width: 100%; height: 100%;">
+      show-location="true" style="width: 100%; height: 100%;">
 
       <!-- 搜索-->
       <cover-view class="search" hover-class="search-hover" bindtap="bindSearchTap">

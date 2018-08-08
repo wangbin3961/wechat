@@ -1,4 +1,5 @@
 // pages/register/register.js
+var API = require('../../utils/api.js')
 Page({
 
   /**
@@ -113,6 +114,13 @@ Page({
     var that = this;
     var formData = e.detail.value;
     console.info(formData);
+    API.register("POST", formData, function(res) {
+      //这里既可以获取模拟的res
+      console.log(res)
+      that.setData({
+        list: res.data
+      })
+    });
     // wx.request({
     //   url: 'http://test.com:8080/test/socket.php?msg=2',
     //   data: formData,
