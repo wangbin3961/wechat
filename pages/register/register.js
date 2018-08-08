@@ -6,7 +6,10 @@ Page({
    */
   data: {
     isAgree: false,
-    isPassword: true
+    isPassword: true,
+    countdown: 60,
+    countText: "发送验证码",
+    disableBtn: false
   },
 
   /**
@@ -75,6 +78,35 @@ Page({
     this.setData({
       isPassword: !this.data.isPassword
     })
+  },
+
+  /**
+   * 发送验证码
+   */
+  bindSendCodeTap: function(e) {
+    let _this = this;
+    _this.setData({
+      countdown: 60,
+      disableBtn: true,
+      countText: "重新发送",
+    });
+    let time = setInterval(() => {
+      let countdown = _this.data.countdown;
+      countdown--;
+      console.info(countdown);
+      _this.setData({
+        countdown: countdown
+      });
+      if (countdown == 0) {
+        clearInterval(time);
+        _this.setData({
+          countdown: "",
+          countText: "重新发送",
+          flag: true,
+          disableBtn: false
+        });
+      }
+    }, 1000)
   },
 
   bindRigester: function(e) {

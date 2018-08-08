@@ -6,7 +6,7 @@
         <image src="../../images/phone.png"></image>
       </view>
       <view class="text">
-        <input class="weui-input" type="number" placeholder="请输入您的手机号" name="phone"/>
+        <input class="weui-input" type="number" placeholder="请输入您的手机号" name="phone" />
       </view>
     </view>
 
@@ -18,7 +18,10 @@
         <input class="weui-input" type="number" placeholder="请输入验证码" name="vcode" />
       </view>
       <view class="">
-        <button class="vcode-btn" type="warn">发送验证码</button>
+        <button class="vcode-btn" type="warn" disabled="{{disableBtn}}" bindtap="bindSendCodeTap">
+          {{countText}}
+          <text wx:if="{{disableBtn}}">({{countdown}})</text>
+        </button>
       </view>
     </view>
 
@@ -34,7 +37,7 @@
       </view>
     </view>
 
-    <checkbox-group bindchange="bindAgreeChange" name="agree" >
+    <checkbox-group bindchange="bindAgreeChange" name="agree">
       <label class="weui-agree" for="weuiAgree">
         <view class="weui-agree__text">
           <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />

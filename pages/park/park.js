@@ -145,7 +145,9 @@ Page({
 
   //取车缴费
   bindPayTap: function(e) {
-
+    wx.navigateTo({
+      url: '../pay/pay'
+    })
   },
 
   onLoad: function(options) {
