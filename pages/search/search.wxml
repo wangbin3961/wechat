@@ -14,7 +14,7 @@
     </view>
   </view>
   <scroll-view class='search-result' scroll-y wx:if="{{showResult}}">
-    <view class="search-item" wx:for="{{result}}" wx:for-item="item" wx:key="item.id" bindtap="bindViewResultTap" data-location="{{item.location}}">
+    <view class="search-item" wx:for="{{result}}" wx:for-item="item" wx:key="item.id" bindtap="bindViewResultTap" data-location="{{item.location}}" data-title="{{item.title}}">
       <text class="title">{{item.title}}</text>
       <text class="address">{{item.address}}</text>
     </view>
