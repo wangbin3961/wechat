@@ -7,7 +7,7 @@
         <image src="../../images/phone.png"></image>
       </view>
       <view class="text">
-        <input class="weui-input" type="number" placeholder="请输入您的手机号" name="phone" auto-focus focus bindblur="bindPhoneBlur"/>
+        <input class="weui-input" type="number" placeholder="请输入您的手机号" name="phone" auto-focus focus bindinput="bindPhoneInput" disabled='{{disablePhone}}'/>
       </view>
     </view>
 

@@ -12,6 +12,7 @@ Page({
     countdown: 60,
     countText: "发送验证码",
     disableBtn: true,
+    disablePhone: false,
     showCountdown: false,
     showTopTips: false,
     topTips: "输入错误"
@@ -85,7 +86,7 @@ Page({
     })
   },
 
-  bindPhoneBlur: function(e) {
+  bindPhoneInput: function(e) {
     let that = this;
     if (e.detail.value.length === 11) {
       let val = this.checkPhoneNum(e.detail.value);
@@ -103,36 +104,28 @@ Page({
           showTopTips: true,
           topTips: "手机号码格式错误"
         })
-        setTimeout(function() {
-          that.setData({
-            showTopTips: false
-          });
-        }, 3000);
+        // setTimeout(function() {
+        //   that.setData({
+        //     showTopTips: false
+        //   });
+        // }, 3000);
       }
-    } else {
+    } else if (e.detail.value.length > 11) {
       this.setData({
         disableBtn: true,
         showTopTips: true,
         topTips: "请填写11位手机号码"
       })
-      setTimeout(function() {
-        that.setData({
-          showTopTips: false
-        });
-      }, 3000);
+    } else {
+      this.setData({
+        disableBtn: true
+      })
     }
   },
+
   checkPhoneNum: function(phoneNumber) {
-    let str = /^1\d{10}$/
-    if (str.test(phoneNumber)) {
-      return true
-    } else {
-      wx.showToast({
-        title: '手机号不正确',
-        image: './../../../../images/fail.png'
-      })
-      return false
-    }
+    let myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    return myreg.test(phoneNumber);
   },
 
   /**
@@ -145,6 +138,7 @@ Page({
       disableBtn: true,
       showCountdown: true,
       countText: "重新发送",
+      disablePhone: true
     });
     let time = setInterval(() => {
       let countdown = _this.data.countdown;
@@ -160,7 +154,8 @@ Page({
           countText: "重新发送",
           flag: true,
           disableBtn: false,
-          showCountdown: false
+          showCountdown: false,
+          disablePhone: false
         });
       }
     }, 1000)
