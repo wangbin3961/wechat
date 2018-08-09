@@ -5,7 +5,7 @@
     <input bindinput="bindKeyInput" bindconfirm="bindConfirm" placeholder="请输入目的地名称" auto-focus confirm-type="search" />
     <image class="voice" src="../../images/voice.png" />
   </view>
-  <view class='search-history' wx:if="{{hasHistory}}">
+  <view class='search-history' wx:if="{{showHistory}}">
     <view class="item" wx:for="{{history}}" wx:for-item="item" wx:key="*this" bindtap="bindHistorySearchTap" data-text="{{item}}">
       <text>{{item}}</text>
     </view>
@@ -13,5 +13,14 @@
       <text>清空搜索历史</text>
     </view>
   </view>
-  <view class='search-result'></view>
+  <scroll-view class='search-result' scroll-y wx:if="{{showResult}}">
+    <view class="search-item" wx:for="{{result}}" wx:for-item="item" wx:key="item.id" bindtap="bindViewResultTap" data-location="{{item.location}}">
+      <text class="title">{{item.title}}</text>
+      <text class="address">{{item.address}}</text>
+    </view>
+    <view class="noresult" wx:if="{{noresult}}">
+      <text>无结果</text>
+    </view>
+  </scroll-view>
+
 </view>

@@ -1,18 +1,54 @@
 const app = getApp();
 var QQMapWX = require('../../utils/qqmap-wx-jssdk.min.js');
 var qqmapsdk;
+
 Page({
   data: {
     history: [],
-    hasHistory: false,
-    parks: []
+    showHistory: false,
+    result: [],
+    showResult: false,
+    noresult: true
   },
 
   /**
    * 键盘输入事件
    */
   bindKeyInput: function(e) {
-    console.info(e);
+    console.info(e.detail);
+    // 切换搜索历史和搜索结果面板的显示
+    if (e.detail.cursor > 0) {
+      this.setData({
+        showResult: true,
+        showHistory: false
+      })
+    } else {
+      this.setData({
+        showResult: false,
+        showHistory: true
+      })
+    }
+
+    qqmapsdk.search({
+      keyword: e.detail.value,
+      success: res => {
+        console.log(res);
+        if (res.data.length > 0) {
+          this.setData({
+            noresult: false,
+            result: res.data
+          })
+        } else {
+          this.setData({
+            noresult: true,
+            result: []
+          })
+        }
+      },
+      fail: res => {
+        console.log(res);
+      }
+    })
   },
 
   /**
@@ -24,13 +60,14 @@ Page({
       keyword: e.detail.value,
       success: function(res) {
         console.log(res);
+        this.setData({
+          result: res.data
+        })
       },
       fail: function(res) {
         console.log(res);
       },
-      complete: function(res) {
-        console.log(res);
-      }
+      complete: function(res) {}
     })
     //加入历史搜索记录
     var history = wx.getStorageSync('searchHistory') || [];
@@ -66,13 +103,13 @@ Page({
       key: 'A7YBZ-JWPCX-L3E4V-7WVVY-H6QIV-LCFDK'
     });
     var _history = wx.getStorageSync('searchHistory');
-    var _hasHistory = false;
+    var _showHistory = false;
     if (_history.length > 0) {
-      _hasHistory = true;
+      _showHistory = true;
     }
     this.setData({
       history: _history,
-      hasHistory: _hasHistory
+      showHistory: _showHistory
     });
   }
 })

@@ -2,8 +2,7 @@
 //获取应用实例
 const app = getApp();
 const util = require('../../utils/util.js');
-const API = require('../../utils/api.js')
-var QQMapWX = require('../../utils/qqmap-wx-jssdk.min.js');
+const API = require('../../utils/api.js');
 
 let _parkList = [];
 let _markers = [];
