@@ -3,6 +3,7 @@
 const app = getApp();
 const util = require('../../utils/util.js');
 const API = require('../../utils/api.js')
+var QQMapWX = require('../../utils/qqmap-wx-jssdk.min.js');
 
 let _parkList = [];
 let _markers = [];

@@ -1,4 +1,6 @@
 const app = getApp();
+var QQMapWX = require('../../utils/qqmap-wx-jssdk.min.js');
+var qqmapsdk;
 Page({
   data: {
     history: [],
@@ -18,10 +20,22 @@ Page({
    */
   bindConfirm: function(e) {
     console.info(e.detail.value);
+    qqmapsdk.search({
+      keyword: e.detail.value,
+      success: function(res) {
+        console.log(res);
+      },
+      fail: function(res) {
+        console.log(res);
+      },
+      complete: function(res) {
+        console.log(res);
+      }
+    })
     //加入历史搜索记录
-    var history = wx.getStorageSync('searchHistory') || []
-    history.unshift(e.detail.value)
-    wx.setStorageSync('searchHistory', history)
+    var history = wx.getStorageSync('searchHistory') || [];
+    history.unshift(e.detail.value);
+    wx.setStorageSync('searchHistory', history);
     //跳转页面
     wx.switchTab({
       url: '../park/park',
@@ -48,6 +62,9 @@ Page({
   },
 
   onLoad: function() {
+    qqmapsdk = new QQMapWX({
+      key: 'A7YBZ-JWPCX-L3E4V-7WVVY-H6QIV-LCFDK'
+    });
     var _history = wx.getStorageSync('searchHistory');
     var _hasHistory = false;
     if (_history.length > 0) {
