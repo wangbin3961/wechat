@@ -11,7 +11,10 @@ Page({
     isPassword: true,
     countdown: 60,
     countText: "发送验证码",
-    disableBtn: false
+    disableBtn: true,
+    showCountdown: false,
+    showTopTips: false,
+    topTips: "输入错误"
   },
 
   /**
@@ -82,6 +85,56 @@ Page({
     })
   },
 
+  bindPhoneBlur: function(e) {
+    let that = this;
+    if (e.detail.value.length === 11) {
+      let val = this.checkPhoneNum(e.detail.value);
+      console.info(val);
+      if (val) {
+        if (this.data.showCountdown == false) {
+          this.setData({
+            disableBtn: false,
+            showTopTips: false
+          })
+        }
+      } else {
+        this.setData({
+          disableBtn: true,
+          showTopTips: true,
+          topTips: "手机号码格式错误"
+        })
+        setTimeout(function() {
+          that.setData({
+            showTopTips: false
+          });
+        }, 3000);
+      }
+    } else {
+      this.setData({
+        disableBtn: true,
+        showTopTips: true,
+        topTips: "请填写11位手机号码"
+      })
+      setTimeout(function() {
+        that.setData({
+          showTopTips: false
+        });
+      }, 3000);
+    }
+  },
+  checkPhoneNum: function(phoneNumber) {
+    let str = /^1\d{10}$/
+    if (str.test(phoneNumber)) {
+      return true
+    } else {
+      wx.showToast({
+        title: '手机号不正确',
+        image: './../../../../images/fail.png'
+      })
+      return false
+    }
+  },
+
   /**
    * 发送验证码
    */
@@ -90,6 +143,7 @@ Page({
     _this.setData({
       countdown: 60,
       disableBtn: true,
+      showCountdown: true,
       countText: "重新发送",
     });
     let time = setInterval(() => {
@@ -105,7 +159,8 @@ Page({
           countdown: "",
           countText: "重新发送",
           flag: true,
-          disableBtn: false
+          disableBtn: false,
+          showCountdown: false
         });
       }
     }, 1000)

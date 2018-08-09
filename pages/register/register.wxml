@@ -1,4 +1,5 @@
 <!--pages/register/register.wxml-->
+<view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{topTips}}</view>
 <view class="register">
   <form bindsubmit="bindRigester" bindreset="formReset">
     <view class="phone">
@@ -6,7 +7,7 @@
         <image src="../../images/phone.png"></image>
       </view>
       <view class="text">
-        <input class="weui-input" type="number" placeholder="请输入您的手机号" name="phone" auto-focus />
+        <input class="weui-input" type="number" placeholder="请输入您的手机号" name="phone" auto-focus focus bindblur="bindPhoneBlur"/>
       </view>
     </view>
 
@@ -20,7 +21,7 @@
       <view class="">
         <button class="vcode-btn" type="warn" disabled="{{disableBtn}}" bindtap="bindSendCodeTap">
           {{countText}}
-          <text wx:if="{{disableBtn}}">({{countdown}})</text>
+          <text wx:if="{{showCountdown}}">({{countdown}})</text>
         </button>
       </view>
     </view>
