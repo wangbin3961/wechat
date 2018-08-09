@@ -6,15 +6,15 @@
     <image class="voice" src="../../images/voice.png" />
   </view>
   <view class='search-history' wx:if="{{showHistory}}">
-    <view class="item" wx:for="{{history}}" wx:for-item="item" wx:key="*this" bindtap="bindHistorySearchTap" data-text="{{item}}">
-      <text>{{item}}</text>
+    <view class="item" wx:for="{{history}}" wx:for-item="item" wx:key="{{item.id}}" bindtap="bindHistorySearchTap" data-text="{{item.title}}" data-location="{{item.location}}">
+      <text>{{item.title}}</text>
     </view>
     <view class="clear" bindtap="bindClearHistoryTap">
       <text>清空搜索历史</text>
     </view>
   </view>
   <scroll-view class='search-result' scroll-y wx:if="{{showResult}}">
-    <view class="search-item" wx:for="{{result}}" wx:for-item="item" wx:key="item.id" bindtap="bindViewResultTap" data-location="{{item.location}}" data-title="{{item.title}}">
+    <view class="search-item" wx:for="{{result}}" wx:for-item="item" wx:key="item.id" bindtap="bindViewResultTap" data-location="{{item.location}}" data-title="{{item.title}}" data-id="{{item.id}}">
       <text class="title">{{item.title}}</text>
       <text class="address">{{item.address}}</text>
     </view>

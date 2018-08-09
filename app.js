@@ -1,6 +1,6 @@
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch: function() {
     // 展示本地存储能力
     // 启动时间保存到logs
     var logs = wx.getStorageSync('logs') || []
@@ -14,7 +14,7 @@ App({
     //     console.info(res);
     //   }
     // })
-    
+
     // 获取用户信息
     // wx.getSetting({
     //   success: res => {
@@ -44,12 +44,13 @@ App({
         this.globalData.windowHeight = res.windowHeight;
       }
     })
-    
+
   },
   globalData: {
     userInfo: null,
-    searchText: "",
     isLogin: false,
-    windowHeight: 0
+    windowHeight: 0,
+    searchText: "",
+    searchLocation: {}
   }
 })

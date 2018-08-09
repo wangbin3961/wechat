@@ -5,7 +5,23 @@ const util = require('../../utils/util.js');
 const API = require('../../utils/api.js');
 
 let _parkList = [];
-let _markers = [];
+let _markers = [{
+  iconPath: "../../images/park-m.png",
+  id: 0,
+  title: '11',
+  latitude: 39.97933,
+  longitude: 116.31845,
+  width: 32,
+  height: 32,
+  callout: {
+    content: '测试停车场',
+    display: 'BYCLICK',
+    color: '#345678',
+    bgColor: '#ffffff',
+    borderRadius: 3,
+    padding: 5
+  }
+}];
 let _searchplacehold = "请输入您的目的地";
 let _searchmoreinfo = "点击查看更多停车场";
 let _searchmoreinfo2 = "附近的停车场";
@@ -18,23 +34,7 @@ Page({
     circles: [],
     polyline: [],
     //标记点
-    markers: [{
-      iconPath: "../../images/park-m.png",
-      id: 0,
-      title: '11',
-      latitude: 39.97933,
-      longitude: 116.31845,
-      width: 32,
-      height: 32,
-      callout: {
-        content: '测试停车场',
-        display: 'BYCLICK',
-        color: '#345678',
-        bgColor: '#ffffff',
-        borderRadius: 3,
-        padding: 5
-      }
-    }],
+    markers: _markers,
     rendered: false,
     parklist: _parkList,
     showItems: "none",
@@ -152,9 +152,9 @@ Page({
 
   onLoad: function(options) {
     var _this = this;
-    //获取当前位置
+    // 获取当前位置
     wx.getLocation({
-      type: 'wgs84', //返回GPS坐标
+      type: 'wgs84', // 返回GPS坐标
       success: function(res) {
         var _latitude = res.latitude
         var _longitude = res.longitude
@@ -189,8 +189,51 @@ Page({
         longitude: 116.31845
       }];
       // TODO 地图重新定位
-      // TODO 获取新位置停车场
+      const location = app.globalData.searchLocation;
+      if (location.lat && location.lng){       
+        _markers = [{
+          iconPath: "../../images/marker1.png",
+          id: 0,
+          title: '11',
+          latitude: location.lat,
+          longitude: location.lng,
+          width: 32,
+          height: 32,
+          callout: {
+            content: app.globalData.searchText,
+            display: 'BYCLICK',
+            color: '#345678',
+            bgColor: '#ffffff',
+            borderRadius: 3,
+            padding: 5
+          }
+        }];
+        _markers.push({
+          iconPath: "../../images/park-m.png",
+          id: 1,
+          title: '11',
+          latitude: 39.97933,
+          longitude: 116.31845,
+          width: 32,
+          height: 32,
+          callout: {
+            content: '测试停车场',
+            display: 'BYCLICK',
+            color: '#345678',
+            bgColor: '#ffffff',
+            borderRadius: 3,
+            padding: 5
+          }
+        })
+        this.setData({
+          latitude: location.lat,
+          longitude: location.lng,
+          markers: _markers
+        })
+      }
+      console.info(location);
 
+      // TODO 获取新位置停车场
       let _height = "auto";
       if (_result.length > 2) {
         _height = app.globalData.windowHeight / 2 + "px";

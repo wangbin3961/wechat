@@ -69,14 +69,7 @@ Page({
       },
       complete: function(res) {}
     })
-    // 加入历史搜索记录
-    let history = wx.getStorageSync('searchHistory') || [];
-    history.unshift(e.detail.value);
-    wx.setStorageSync('searchHistory', history);
-    // 跳转页面
-    wx.switchTab({
-      url: '../park/park',
-    })
+
   },
 
   /**
@@ -93,22 +86,35 @@ Page({
    * 点击历史搜索 
    */
   bindHistorySearchTap: function(e) {
-    var text = e.currentTarget.dataset.text;
+    let text = e.currentTarget.dataset.text;
+    let location = e.currentTarget.dataset.location;
     app.globalData.searchText = text;
+    app.globalData.searchLocation = location;
     // 跳转页面
     wx.switchTab({
       url: '../park/park',
     })
   },
 
+  /**
+   * 点击检索结果
+   */
   bindViewResultTap: function(e) {
     let text = e.currentTarget.dataset.title;
+    let location = e.currentTarget.dataset.location;
+    let id = e.currentTarget.dataset.id;
+    let h = {
+      title: text,
+      location: location,
+      id: id
+    }
     // 存储为历史检索记录
     let history = wx.getStorageSync('searchHistory') || [];
-    history.unshift(text);
+    history.unshift(h);
     wx.setStorageSync('searchHistory', history);
 
     app.globalData.searchText = text;
+    app.globalData.searchLocation = location;
     // 跳转地图页面
     wx.switchTab({
       url: '../park/park',
