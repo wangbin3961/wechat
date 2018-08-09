@@ -37,8 +37,8 @@
 
   </view>
   <!-- 停车场 -->
-  <scroll-view class="items" scroll-y style="display:{{showItems}};height:{{height}}" bindscrolltoupper="bindScrollToUpper" bindscrolltolower="bindScrollToLower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-    <view id="{{index}}" class="row park-item" wx:for="{{parklist}}" wx:for-item="item" wx:key="id">
+  <scroll-view class="items" scroll-y style="display:{{showItems}};height:{{height}}" bindscrolltoupper="bindScrollToUpper" bindscrolltolower="bindScrollToLower" bindscroll="bindScroll" >
+    <view id="{{index}}" class="row park-item" wx:for="{{parklist}}" wx:for-item="item" wx:key="item.id">
       <view class="column park-item-text">
         <text class="small black">{{item.name}}</text>
         <text class="x-small grey">{{item.desc1}}</text>

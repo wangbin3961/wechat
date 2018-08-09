@@ -2,31 +2,27 @@ const app = getApp();
 
 Page({
   data: {
-    isLogin: false, //登录状态
-    userInfo: {}
+    userInfo: {},
+    isLogin: false //登录状态
   },
 
   onLoad: function(options) {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo
-      })
-    }
     // 页面初始化 options为页面跳转所带来的参数
-    var that = this;
-    if (!that.data.isLogin) {
-      wx.navigateTo({
-        url: '../login/login'
-      });
-    }
+    // var that = this;
+    // if (!that.data.isLogin) {
+    //   wx.navigateTo({
+    //     url: '../login/login'
+    //   });
+    // }
+    console.info(app.globalData.userInfo);
   },
 
   onShow: function() {
     this.setData({
       isLogin: app.globalData.isLogin,
-      disabled: !app.globalData.isLogin
+      disabled: !app.globalData.isLogin,
+      userInfo: app.globalData.userInfo
     });
-    console.info(this.data);
   },
 
   bindLoginTap: function(e) {

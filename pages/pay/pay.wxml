@@ -1,2 +1,5 @@
 <!-- 支付 -->
-<view>支付信息</view>
+<view>支付信息
+<button type="primary" bindtap="bindPayTap">确认支付</button>
+<button type="default" bindtap="bindCanclePayTap">取消</button>
+</view>

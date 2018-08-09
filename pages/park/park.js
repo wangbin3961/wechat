@@ -2,32 +2,10 @@
 //获取应用实例
 const app = getApp();
 const util = require('../../utils/util.js');
+const API = require('../../utils/api.js')
 
-let _parkList = [{
-  "name": "测试停车场2",
-  "id": "1",
-  "desc1": "电子支付 · 地下 · 免15分钟",
-  "desc2": "车位充足",
-  "desc3": "约15.0元/小时",
-  latitude: 39.97933,
-  longitude: 116.31845
-}, {
-  "name": "测试停车场1",
-  "id": "1",
-  "desc1": "电子支付 · 地下 · 免15分钟",
-  "desc2": "车位充足",
-  "desc3": "约12.0元/小时",
-  latitude: 39.97933,
-  longitude: 116.31845
-}, {
-  "name": "大钟寺东路停车场",
-  "id": "1",
-  "desc1": "现金支付 · 地上 · 免15分钟",
-  "desc2": "车位充足",
-  "desc3": "约15.0元/小时",
-  latitude: 39.97933,
-  longitude: 116.31845
-}];
+let _parkList = [];
+let _markers = [];
 let _searchplacehold = "请输入您的目的地";
 let _searchmoreinfo = "点击查看更多停车场";
 let _searchmoreinfo2 = "附近的停车场";
@@ -137,18 +115,39 @@ Page({
     // })
   },
 
+  bindScrollToLower: function(e) {
+
+  },
+
+  bindScroll: function(e) {
+
+  },
+
   //预约
   bindOrderTap: function(e) {
-    wx.navigateTo({
-      url: '../appointment/appointment'
-    })
+    if (app.globalData.isLogin) {
+      wx.navigateTo({
+        url: '../appointment/appointment'
+      })
+    } else {
+      wx.navigateTo({
+        url: '../login/login'
+      })
+    }
+
   },
 
   //取车缴费
   bindPayTap: function(e) {
-    wx.navigateTo({
-      url: '../pay/pay'
-    })
+    if (app.globalData.isLogin) {
+      wx.navigateTo({
+        url: '../pay/pay'
+      })
+    } else {
+      wx.navigateTo({
+        url: '../login/login'
+      })
+    }
   },
 
   onLoad: function(options) {
@@ -169,15 +168,10 @@ Page({
     // 使用 wx.createMapContext 获取 map 上下文
     this.mapCtx = wx.createMapContext('park_map');
 
-    // wx.request({
-    //   url: 'http://localhost:7474',
-    //   success: res => {
-    //     console.info(res);
-    //     this.setData({
-    //       markers: res.data.parks
-    //     })
-    //   }
-    // })
+    // 查询停车场
+    API.getParkByLocation("GET", {}, function(res) {
+      _parkList = res.data;
+    }, true);
   },
 
   onShow: function() {

@@ -1,7 +1,8 @@
 <view class="mine-container">
   <view class="userinfo" wx:if="{{isLogin}}">
-    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover" wx:if="{{userInfo.avatarUrl}}"></image>
+    <image bindtap="bindLoginTap" class="userinfo-avatar" src="../../images/user-default.png" mode="cover" wx:else></image>
+    <text class="userinfo-nickname">{{userInfo.loginName}}</text>
     <image bindtap="bindViewUserInfoTap" class="arrow" src="../../images/arrow-white-m.png"></image>
   </view>
   <view class="userinfo" wx:else>

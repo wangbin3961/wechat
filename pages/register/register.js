@@ -1,5 +1,6 @@
 // pages/register/register.js
-var API = require('../../utils/api.js')
+const API = require('../../utils/api.js')
+
 Page({
 
   /**
@@ -114,24 +115,14 @@ Page({
     var that = this;
     var formData = e.detail.value;
     console.info(formData);
+    // 模拟注册
     API.register("POST", formData, function(res) {
-      //这里既可以获取模拟的res
-      console.log(res)
-      that.setData({
-        list: res.data
+      console.log(res);
+      // 注册成功返回登录
+      wx.navigateTo({
+        url: '../login/login',
       })
     });
-    // wx.request({
-    //   url: 'http://test.com:8080/test/socket.php?msg=2',
-    //   data: formData,
-    //   header: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   success: function(res) {
-    //     console.log(res.data)
-    //     that.modalTap();
-    //   }
-    // })
 
   }
 })
