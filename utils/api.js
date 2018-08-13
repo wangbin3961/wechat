@@ -38,20 +38,33 @@ function register(method = "GET", params = {}, callback, debug = true) {
   }
 }
 
-function login(method = "GET", params = {}, callback) {
+function login(method = "GET", params = {}, callback, debug = false) {
   console.info(params);
-  wx.request({
-    url: HOST + "app/userinfo/loginForWechat",
-    data: params,
-    method: method,
-    header: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    success: function (res) {
-      // 输出结果
-      callback(res);
-    }
-  })
+
+  if(debug){
+    var res = {
+      data: {
+        id: "1",
+        loginName: "admin",
+        openid: "oqW8r5IaazDBp569a7SoE_3hqIW0"
+      }
+    };
+    callback(res);
+  } else {
+    wx.request({
+      url: HOST + "app/userinfo/loginForWechat",
+      data: params,
+      method: method,
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        // 输出结果
+        callback(res);
+      }
+    })
+  }
+  
 }
 
 function getParkByLocation(method = "GET", params = {}, callback, debug = true) {
